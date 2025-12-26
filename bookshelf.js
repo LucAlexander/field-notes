@@ -4,33 +4,6 @@ const articles = [
 		date: "26-12-2025",
 		content: ".".repeat(200000)
 	},
-
-	{
-		title: "State of the System",
-		date: "26-12-2025",
-		content: ".".repeat(20000)
-	},
-	{
-		title: "State of the System",
-		date: "26-12-2025",
-		content: ".".repeat(2000)
-	},
-	{
-		title: "State of the System",
-		date: "26-12-2025",
-		content: ".".repeat(200)
-	},
-	{
-		title: "State of the System",
-		date: "26-12-2025",
-		content: ".".repeat(20)
-	},
-	{
-		title: "State of the System",
-		date: "26-12-2025",
-		content: ".".repeat(2)
-	},
-
 ];
 
 const colors = [
