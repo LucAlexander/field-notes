@@ -34,12 +34,10 @@ const articles = [
 ];
 
 const colors = [
-	"#2c682a",
-	"#af2a2a",
-	"#1340a0",
-	"#e0b92f",
-	"#421075",
-	"#10756c"
+	"#2b2b2b",
+	"#282828",
+	"#1c1c1c",
+	"#141414",
 ];
 
 const bookshelf = document.getElementById("bookshelf");
@@ -67,8 +65,8 @@ articles.forEach(article => {
 	const book = document.createElement("div");
 	book.className = "book";
 	book.style.width = bookWidth(article.content.length) + "px";
-	book.style.height= "100px";
-	book.style.background = colors[randInt(0, colors.length)];
+	book.style.height= "80px";
+	book.style.background = colors[randInt(0, colors.length-1)];
 
 
 	const title = document.createElement("div");
@@ -76,14 +74,40 @@ articles.forEach(article => {
 	title.textContent = article.date;
 
 	book.appendChild(title);
+	book.addEventListener("mouseenter", e => {
+	  showTooltipAtMouse(e, article.title);
+	});
+
+	book.addEventListener("mousemove", e => {
+	  showTooltipAtMouse(e, article.title);
+	});
+
+	book.addEventListener("mouseleave", hideTooltip);
 
 	book.onclick = () => {
-	content.innerHTML = `
-	  <h1>${article.title}</h1>
-	  <p>${article.content}</p>
-	`;
+		content.innerHTML = `
+		  <h1>${article.title}</h1>
+		  <p>${article.content}</p>
+		`;
 	};
 
 	bookshelf.appendChild(book);
 });
+
+
+const tooltip = document.getElementById("tooltip");
+const OFFSET = 12;
+
+function showTooltipAtMouse(e, text) {
+  tooltip.textContent = text;
+  tooltip.style.opacity = "1";
+
+  tooltip.style.left = (e.clientX + OFFSET) + "px";
+  tooltip.style.top  = (e.clientY+ OFFSET) + "px";
+}
+
+function hideTooltip() {
+  tooltip.style.opacity = "0";
+}
+
 
