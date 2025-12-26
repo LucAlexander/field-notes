@@ -19,7 +19,7 @@
 	  box-sizing: border-box;
 	  display: flex;
 	  flex-wrap: wrap;
-	  align-content: flex-start;
+		align-content: flex-start;
 	  gap: 8px;
 	   background-image: url('shelf.png');
 	  background-repeat: repeat;
@@ -67,30 +67,30 @@
       flex: 1;
       padding: 32px;
       overflow-y: auto;
-	  background: #131633;
+	  background: #1d1926;
     }
 
     #content {
       flex: 1;
       padding: 32px;
       overflow-y: auto;
-	  background: #131633;
+	  background: #1d1926;
     }
 
 	#content p {
 		display: inline-block;
 		max-width: 80%;
-		background: #232859;
+		background: #1d1926;
 		border: 1px solid #ccc;
 		border-radius: 8px;
 		padding: 15px;
 		word-wrap: break-word;
 		overflow-wrap: break-word;
-		color: #a4d4d6;
+		color: #bd91d8;
 	}
 
     #right h1 {
-		color: #a4d4d6;
+		color: #bd91d8;
 		  margin-top: 0;
     }
 
@@ -99,6 +99,33 @@
 		height: 50px;
 		position: fixed;
 	}
+	  .page {
+    position: relative;
+    margin: 1rem 0;
+  }
+
+  canvas {
+    display: block;
+  }
+
+  .textLayer {
+    position: absolute;
+    inset: 0;
+    pointer-events: auto;
+    user-select: text;
+	color: transparent;
+  }
+	#pdf-container{
+		position: relative;
+	}
+	canvas {
+  filter:
+    invert(90%)      /* flips white to almost black */
+    sepia(80%)       /* adds a reddish tone */
+    saturate(200%)   /* boosts color intensity */
+    hue-rotate(225deg) /* shifts hue */
+}
+
   </style>
 </head>
 <body>
@@ -109,8 +136,9 @@
 		<div id="content">
 			<p>Please select a notebook.</p>
 		</div>
+		<div id="pdf-container"></div>
 	</div>
-	<script src="bookshelf.js"></script>
+	<script type="module" src="bookshelf.js"></script>
 </body>
 </html>
 
