@@ -33,6 +33,15 @@ const articles = [
 
 ];
 
+const colors = [
+	"#2c682a",
+	"#af2a2a",
+	"#1340a0",
+	"#e0b92f",
+	"#421075",
+	"#10756c"
+];
+
 const bookshelf = document.getElementById("bookshelf");
 const content = document.getElementById("content");
 
@@ -42,7 +51,7 @@ const maxLen = Math.max(...lengths);
 
 function bookWidth(len) {
   const minW = 20;
-  const maxW = 280;
+  const maxW = 80;
   if (maxLen === minLen) return minW;
   return (
     minW +
@@ -50,31 +59,31 @@ function bookWidth(len) {
   );
 }
 
+function randInt(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 articles.forEach(article => {
-  const book = document.createElement("div");
-  book.className = "book";
-  book.style.width = bookWidth(article.content.length) + "px";
-  book.style.height= "100px";
+	const book = document.createElement("div");
+	book.className = "book";
+	book.style.width = bookWidth(article.content.length) + "px";
+	book.style.height= "100px";
+	book.style.background = colors[randInt(0, colors.length)];
 
-  const title = document.createElement("div");
-  title.className = "book-title";
-  title.textContent = article.title;
 
-  const date = document.createElement("div");
-  date.className = "book-date";
-  date.textContent = article.date;
+	const title = document.createElement("div");
+	title.className = "book-title";
+	title.textContent = article.date;
 
-  book.appendChild(title);
-  book.appendChild(date);
+	book.appendChild(title);
 
-  book.onclick = () => {
-    content.innerHTML = `
-      <h1>${article.title}</h1>
-      <p><em>${article.date}</em></p>
-      <p>${article.content}</p>
-    `;
-  };
+	book.onclick = () => {
+	content.innerHTML = `
+	  <h1>${article.title}</h1>
+	  <p>${article.content}</p>
+	`;
+	};
 
-  bookshelf.appendChild(book);
+	bookshelf.appendChild(book);
 });
 
