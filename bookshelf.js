@@ -60,7 +60,7 @@ const articles = [
 	{
 		title: "State of the System",
 		date: "26-12-2025",
-		content: "notes/full_plan.pdf"
+		content: "notes/state_year_1.pdf"
 	},
 	{
 		title: "About this notebook",
