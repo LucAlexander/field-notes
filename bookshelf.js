@@ -24,7 +24,6 @@ async function renderPage(page) {
   pageDiv.style.width = viewport.width + "px";
   pageDiv.style.height = viewport.height + "px";
 
-  // Canvas layer
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
 
@@ -66,7 +65,7 @@ const articles = [
 	{
 		title: "About this notebook",
 		date: "26-12-2025",
-		content: "notes/full_plan.pdf"
+		content: "notes/about.pdf"
 	}
 ];
 
@@ -124,6 +123,7 @@ async function main(){
 			  <h1>${article.title}</h1>
 
 			`;
+			container.innerHTML = "";
 			renderPDF(article.content);
 		};
 
