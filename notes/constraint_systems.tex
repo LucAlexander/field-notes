@@ -83,7 +83,7 @@
 	\end{Verbatim}
 	There exists a simple mistake in the logic wherein you cannot dispatch symbols from a compile time environment dynamically, it must be done upfront instead, which means generating the desired loop code as an unrolled set of instructions within the constraint virtual machine itself.
 	\section{Factoring Fix}
-	The setup is nearly identical, but this time the info hook does all the work, generating s expressions in bytecode to run a sequence of constraint predicates which can error the compilation process.\\\\
+	The setup is nearly identical, but this time the info hook does all the work, generating s expressions in bytecode to run a sequence of constraint predicates which can error the compilation process. Here however the constraint registry address is a calculated offset, as befor eit existed int he ephemeral static section of the un VM system. The memory regions in this example are hardprogrammed, fragile, and temporary. \\\\
 	\begin{Verbatim}[tabsize=4]
 
 	(bind collect_constraints (key val)
@@ -177,5 +177,6 @@
 
 	(main)
 	\end{Verbatim}
-
+	\section{Direction}
+	This should make possible the import and conditional use of arbitrary systems of constraint, as well as arbitrary dynamic constraint application to programs. I will continue to create a set of simple constraint system primitives which when combined fulfil sophisticated systems of program space restriction. The hope is to have the ability to create a constraint dispatch entity which when presented with invariant conflicts can increase the constraint burden on the metaprogram. 
 \end{document}
