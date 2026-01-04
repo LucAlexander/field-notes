@@ -59,7 +59,7 @@ const articles = [
 	{
 		title: "User Contraint Libraries",
 		date: "04-01-2026",
-		content: "notes/constraint.pdf"
+		content: "notes/constraint_systems.pdf"
 	},
 	{
 		title: "Un",
