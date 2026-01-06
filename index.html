@@ -177,11 +177,11 @@
 				let content = document.createElement("div");
 				content.id = "content";
 				let github = document.createElement("p");
-				content.appendChild(github);
 				github.textContent = "My Github";
 				github.addEventListener("click", () => {
 				  window.location.href = "https://github.com/LucAlexander";
 				});
+				content.appendChild(github);
 				el.appendChild(content);
 				document.body.appendChild(el);
 			}
