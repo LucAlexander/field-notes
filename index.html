@@ -127,6 +127,14 @@
     display: block;
   }
 
+	#toggle{
+		width:150px;
+		height:50px;
+		float: right;
+		color: #bd91d8;
+		background: #211b29;
+	}
+
   .textLayer {
     position: absolute;
     inset: 0;
@@ -151,16 +159,38 @@
 	<div id="bookshelf"></div>
 	<div id="tooltip"></div>
 	<div id="right">
+		<button id="toggle">Additional Content</button>
 		<h1> Field Notes </h1>
 		<div id="content">
 			<p>Please select a notebook.</p>
 		</div>
 		<div id="pdf-container"></div>
 	</div>
-	<div id="additions">
-		<p>other content</p>
-	</div>
 	<script type="module" src="bookshelf.js"></script>
+	<script>
+		const btn = document.getElementById("toggle");
+		let el = null;
+		btn.addEventListener("click", () => {
+			if (!el) {
+				el = document.createElement("div");
+				el.id = "additions"
+				let content = document.createElement("div");
+				content.id = "content";
+				let github = document.createElement("p");
+				content.appendChild(github);
+				github.textContent = "My Github";
+				github.addEventListener("click", () => {
+				  window.location.href = "https://github.com/LucAlexander";
+				});
+				el.appendChild(content);
+				document.body.appendChild(el);
+			}
+			else {
+				el.remove();
+				el = null;
+			}
+		});
+</script>
 </body>
 </html>
 
