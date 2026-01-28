@@ -57,6 +57,11 @@ async function renderPage(page) {
 
 const articles = [
 	{
+		title: "Semantic Capability Models",
+		date: "28-01-2026",
+		content: "notes/semantic_capability_engines.pdf"
+	},
+	{
 		title: "User Contraint Libraries",
 		date: "04-01-2026",
 		content: "notes/constraint_systems.pdf"
