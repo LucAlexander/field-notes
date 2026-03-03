@@ -57,6 +57,11 @@ async function renderPage(page) {
 
 const articles = [
 	{
+		title: "Adversarial Systems",
+		date: "03-03-2026",
+		content: "notes/adversarial_systems.pdf"
+	},
+	{
 		title: "Un Constraint Manager and Standard",
 		date: "30-01-2026",
 		content: "notes/un_standard.pdf"
