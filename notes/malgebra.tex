@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{lipsum}
+\usepackage{scrextend}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage[left=2.5cm,top=3cm,right=2.5cm,bottom=3cm,bindingoffset=0.5cm]{geometry}
+
+\title{MAlgebra}
+\author{Luc Alexander L{\"u}thi}
+\date{March , 2026}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\section{Introduction}
+	As a continuation of the note on Adversarial Systems, here I explore self metabolizing capability graph machines as a minimal exploitable substrate for studying adversarial systems, presenting a formalism for a malware algebra that allows the mathemetical description and manipulation of systems through exploitable signals. These signals are metabolized by the structure of the system to perform computation, allowing emergent immunity (or security systems), and emergent parasitism (or malware). System structure is described by the same algebra as exploit signals, as signals themselves are simply small system mutations. 
+	\section{Substrate}
+	Systems are simple directed graphs. Neither edges nor vertecies are significant or carry any meaning on their own. The significance of a graph comes from its structural invariants. The directed nature of the graph is significant, and two substructures with different directionalities are considered distinct structures. All structures are composed of nested substructures. A structure only contains what the flow of its directionality allows it to see.
+	\subsection{Capabilities as Patterns}
+	The capabilities associated with a system is defined by what structural capabiltiies it is able to see in its structural representation. Capabilities are each distinct substructures, which when present grant a system a certain capability. A core property of this formalism is that these capabilities can be both emergent and higher order. A higher order capability is present if a graph partially or fully normalizes down to an atomic structural capability. Normalization takes place when structures of the form $A \rightarrow B \rightarrow C$ reduce to structures of the form $A \rightarrow B$. Structures are allowed to manifest as capabilities under partial normalization rather than fully resolved normalization. A fully resolved normalization occurs when the structure cannot be reduced any further. Normalization occurs purely as a conceptual truth about the structure of some system, and showing normalization does not mutate the structure. Some system definitions may include a capability which allows for higher order graph reasoning and conceptual normalization, others may choose to allow it to be a native property of the graph substratae without the need for an earned capability. 
+	\subsection{Control Capabilities}
+	The presense of an observer, or the central identifying feature of an entity in these structural topologies, is simply another capabiblity. A control structure is a capability which marks the presense of an actionable structural entity. These entities may send signals to other entities which are interpreted in a metabolic process. Control structures may be nested in the structure of a larger structural system owned by another entity. These entities may be cooperative and may send signals to eachother, or may be parasitic and act as viruses, spreading themselves and escalating their capabiltiies within a structural subsystem. Multiple instances of the same control structure may exist and represent different manifestations of the same controlling entity.\\\\
+	The strategy of an entity represented by a control structure is an externalized process from this substrate. This may be implemented as players playing a game, or a bot algorithm performing some heuristic based perogative. Separate instances of equivalent control structures are accessible and actionable by the same "player", ie they represent the same entity.
+	\subsection{Signals and Metabolism}
+	Signals are represented by a pair of graph structures. The first is a structural pattern. This pattern will be querried for a match in the target graph, if the substructure exists, the matched location will be mutated to match the second graph in the signal. This process is called metabolism. Metabolism can occur on the first instance found of a depth first or breadth first traversal, which is also specified by the signal. 
+	\section{M(alware) Algebra}
+	\subsection{Primitives}
+	\subsection{Defense}
+	\subsection{Offense}
+\end{document}
