@@ -16,7 +16,7 @@
 
 \title{MAlgebra}
 \author{Luc Alexander L{\"u}thi}
-\date{March , 2026}
+\date{March 7th, 2026}
 
 \begin{document}
 	\maketitle
@@ -34,6 +34,17 @@
 	Signals are represented by a pair of graph structures. The first is a structural pattern. This pattern will be querried for a match in the target graph, if the substructure exists, the matched location will be mutated to match the second graph in the signal. This process is called metabolism. Metabolism can occur on the first instance found of a depth first or breadth first traversal, which is also specified by the signal. 
 	\section{M(alware) Algebra}
 	\subsection{Primitives}
-	\subsection{Defense}
-	\subsection{Offense}
+	There is one primitive type of thing in the M algebra, a graph view. A graph view consists of a graph, and a subsection of the graph considered selected. Graphs are defined by their adjacency matricies. Defining a graph by its adjacency matrix instantiates a view of the entire graph. Specific selection is done concatenatively, and symbols may be subscripted with the selection heuristic, either depth first or breadth first.\\\\
+	$$\gamma = K_5$$
+	$$\beta = \begin{bmatrix}
+		1 & 0 \\
+		1 & 1 
+		\end{bmatrix}$$
+	$$\alpha = \gamma \beta_b$$
+	Beyond explicit selection there is one more primitive operation, $\phi$ replacement, which replaces the specified adjacency matrix in the selection of a view of its left operand with the selected graph of the view of its right operand.\\\\
+	$$\alpha \Phi \begin{bmatrix}
+		1 \\
+		0 \\
+	\end{bmatrix}$$
+	This affords us emergent graph based structure generation and computation. 
 \end{document}

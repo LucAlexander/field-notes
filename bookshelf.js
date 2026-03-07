@@ -57,6 +57,11 @@ async function renderPage(page) {
 
 const articles = [
 	{
+		title: "Malware Algebra",
+		date: "07-03-2026",
+		content: "notes/malgebra.pdf"
+	},
+	{
 		title: "Adversarial Systems",
 		date: "03-03-2026",
 		content: "notes/adversarial_systems.pdf"
