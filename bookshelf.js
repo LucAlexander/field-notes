@@ -57,6 +57,11 @@ async function renderPage(page) {
 
 const articles = [
 	{
+		title: "Minimal Exploitable Formalism",
+		date: "22-03-2026",
+		content: "notes/minimal_adversarial_system.pdf"
+	},
+	{
 		title: "Malware Algebra",
 		date: "07-03-2026",
 		content: "notes/malgebra.pdf"

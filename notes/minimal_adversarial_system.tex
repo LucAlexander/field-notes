@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{lipsum}
+\usepackage{scrextend}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage[left=2.5cm,top=3cm,right=2.5cm,bottom=3cm,bindingoffset=0.5cm]{geometry}
+
+\title{Minimal Adversarial System}
+\author{Luc Alexander L{\"u}thi}
+\date{March 22nd, 2026}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\section{Introduction}
+	Malgebra as an expression language of lenses and mutations on structural capability graphs leaves wanting. The issue is twofold, for one there is imprecision in the lense specification, and more importantly the graph structure does not clearly represent a computing system, making malware and parasitism an emergent property of the capability layer placed on top of the substrate rather than a property of the substrate itself. Ideally in a unified system of malware algebra, this would be an innate property of the representation. There would be truly no difference between computation and signaling, immunity would just be another signal, and there would be no difference between a system representation and a signal. This note introduces a simpler representation substrate which provides these innate properties.
+	\section{Structure of the Substrate}
+	\subsection{Environment of Signals}
+	The environment is filled with minds, and is provided a context of states. Minds are constantly emitting signals in the form of simple reasoning claims. The representation of these claims and the logic which metabolizes them is not entirely arbitrary, for this model we will seelct first order implications with negation, no and, or, or xor. Biconditional implication can be built but is unnecessary as a primitive. Minds are composed of beliefs, claims whcih are accumulated from receiving signals from the environment. Minds may choose to prune any belief they have. Minds may construct any claim to signal, they need not believe it to signal it. Any signal a mind creates may enter its own mind, through natural presense in the environment. To metabolize a signal, the claim associated with a signal is added to the set of beliefs a mind holds. Minds cannot tell where any claims signals they metabolize came from, and have no visisbility into the state of other minds.\\\\
+	The environment has at least one state designated as a core axiom, it is assumed in every mind that an axiom state is reachable in the path of implication without needing proof or a series of claims which show that it is reachable. Certain non axiom states reachable in a mind may be designated as capabilities. These are states a mind may be incentivized, for the purpose of an exercise in system construction and exploitation, to maintain or avoid. In the case of a contradiction of states which are reachable through implication in a mind, the state collapses and it neither usable as present or not present for the purpose of proof. A mind may assert a proof if a claim using other metabolized belief claims as well as previously proven claims, when a proof of a state is present, that state instantiation takes precedent when a contradiction emerges, preventing collapse. Claims used for a proof are still prone to collapse, at which point a proof is no longer valid.\\\\
+	Different singaling mechanisms and signal receoption mechanisms may be encoded through capabilities. For organic beings hearing, seeing, speaking, etc may be encoded as capabilities which allow signaling and reception of certain kinds of colored signals. 
+	\section{Operation}
+	In this model, a mind is tasked with maintaining itself, pruning potentiall harmful signaled beliefs, proving structure using what is known to maintain and ensure the persistence of certain capabilities while avoiding the implication of other capabilities. Minds are also tasked with offensively emitting signals designed to disable capabilities in other minds, or bring avoided capabiltiies to fruition. Here is where the complexity of the system arises, as strategies emerge for accomplishing these tasks. These strategies, and policies which employ them are the current subject of study.\\\\
+	Parasitism and malware, which before were forced into the graph substrate through special capabilities, can now be expressed as claims inserted into a minds belief system which lie dormant, seem useful even, but wait for additional signals to complete an attack chain. Negative capabilities can also be used to express escalated presense of an external entity, but this remains a secondary effect of harmful beliefs. 
+	\section{Extension}
+	In an extension of the system, recursive implications are possible, allowing claims in the form of $(A -> B) -> (C -> D)$.
+\end{document}
