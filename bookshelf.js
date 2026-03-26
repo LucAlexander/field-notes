@@ -57,6 +57,11 @@ async function renderPage(page) {
 
 const articles = [
 	{
+		title: "Malware Math",
+		date: "26-03-2026",
+		content: "notes/malware_math.pdf"
+	},
+	{
 		title: "Minimal Exploitable Formalism",
 		date: "22-03-2026",
 		content: "notes/minimal_adversarial_system.pdf"
