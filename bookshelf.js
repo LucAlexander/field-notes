@@ -57,6 +57,11 @@ async function renderPage(page) {
 
 const articles = [
 	{
+		title: "Adversarial Dependent Type Theory",
+		date: "06-04-2026",
+		content: "notes/adversarial_dependent_type_theory.pdf"
+	},
+	{
 		title: "Malware Math",
 		date: "26-03-2026",
 		content: "notes/malware_math.pdf"
