@@ -33,6 +33,9 @@
 	Instructions may be used as a construction, which nests the proof produced by the instruction in the calling instruction.
 	$$\text{f}\,x = \text{g}\,x \vdash (x \rightarrow y)$$
 	This algebra can be thought of as a constructive monotonic dependently typed proof algebra. Side effects may be given to instructions in order to make this algebra a computive dependently typed assembly language. 
+	\section{Quantifiers}
+	You may quantify over the structure of a proof instance using existential and universal quantifiers.
+	$$\text{f}\,x = \forall x \vdash a \exists y | (x \vdash y) \rightarrow (a \rightarrow y)$$
 	\section{Environment}
 	In order to adapt this to an adversarial model, a similar environment to the initial dependently typed model can be constructed. A universe consists of instructions with sufficiently intricate bodies. Minds can receive and emit signals in the environment, constructed as terms composed of other signals instructions. Defenderse prove and maintain a proof of certain target capability states, while attackers use those same generic theorems to prove undesirable capabilities. Capabilities are simply constructed true proofs which show some state is reachable given an instantiated input. 
 \end{document}
