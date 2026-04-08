@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{lipsum}
+\usepackage{scrextend}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage[left=2.5cm,top=3cm,right=2.5cm,bottom=3cm,bindingoffset=0.5cm]{geometry}
+
+\title{Proof Algebra}
+\author{Luc Alexander L{\"u}thi}
+\date{April 8th, 2026}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\section{Introduction}
+	The adversarial type theory lacked in that constraints could not be enforced for implementations, and more importantly that attributes could not be constructed, every implication invocation was flat and there was no state to reason about. This corrective note reformuates this system as an algebra of proof construction and inspection.
+	\section{Instructions}
+	Instructions take a proof as an argument, and return another more specified proof. Instructions are essentially just theorems.
+	$$\text{id}\,x = x$$
+	The body of an instruction can be assertions and constructions. Implications are standard constructions, they take a proof which if true adds information to the proof being constructed.
+	$$\text{f}\,a = a \rightarrow b$$
+	Assertions inspect proof objects to determine if they do or do not show a property. If they do not show the desired property the proof fails. $a \rightsquigarrow b$ may be read $a$ shows $b$.
+	$$\text{f}\,a = a \rightsquigarrow b\,b \rightarrow a$$
+	Instructions may be used as a construction, which nests the proof produced by the instruction in the calling instruction.
+	$$\text{f}\,x = \text{g}\,x \rightsquigarrow (x \rightarrow y)$$
+	This algebra can be thought of as a constructive monotonic dependently typed proof algebra. Side effects may be given to instructions in order to make this algebra a computive dependently typed assembly language. 
+	\section{Environment}
+	In order to adapt this to an adversarial model, a similar environment to the initial dependently typed model can be constructed. A universe consists of instructions with sufficiently intricate bodies. Minds can receive and emit signals in the environment, constructed as terms composed of other signals instructions. Defenderse prove and maintain a proof of certain target capability states, while attackers use those same generic theorems to prove undesirable capabilities. Capabilities are simply constructed true proofs which show some state is reachable given an instantiated input. 
+\end{document}
