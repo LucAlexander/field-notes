@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{lipsum}
+\usepackage{scrextend}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage[left=2.5cm,top=3cm,right=2.5cm,bottom=3cm,bindingoffset=0.5cm]{geometry}
+
+\title{Adversarial Constraint Calculus}
+\author{Luc Alexander L{\"u}thi}
+\date{April 10th, 2026}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\section{Introduction}
+	\section{Formal Definition}
+	A proof consists of an object $p$ such that
+	$$p = (\Gamma, \Sigma)$$
+	where $\Gamma$ and $\Sigma$ are sets of persistent proof context and mutable state respectively such that
+	$$\Gamma \subseteq \Gamma'$$
+	$$\Sigma \rightarrow \Sigma'$$
+	We can assert that a proof $p$ shows $\phi$ as $p \vdash \phi$ or more formally $\Gamma \vdash \phi$ for some $p=(\Gamma,\Sigma)$. Similarly we can assert that a proof $p$ models $\phi$ as $p \models \phi$ iff more formally $\Sigma \vdash \phi$ for some $p=(\Gamma,\Sigma)$. A property $\phi$ is sound under a proof $p$ iff $p\vdash \phi \wedge p\models \phi$.\\\\
+	Instructions are total or partial functions $f : (\Gamma,\Sigma) \rightarrow (\Gamma',\Sigma')$ subject to $\Gamma'=\Gamma\cup\Delta_f(\Gamma,\Sigma)$. These act as parametric theorems which may construct a proof object from another proof object, or may return another parametric theorem.\\\\
+	Failure of any instruction or assertion in a proof fails the entire proof. We represent failure of a proof or assertion as $\bot$ such that
+	\[
+	f(p) =
+	\begin{cases}
+		(\Gamma', \Sigma') & \text{if preconditions are satisfied} \\
+		\bot & \text{otherwise}
+	\end{cases}
+	\]
+	A construction rule constitutes addition of information to the context of a proof.
+	$$\text{construct}_\phi(\Gamma,\Sigma) = (\Gamma\cup{\phi},\Sigma)$$
+	We may similarly apply a state transition to a proof state.
+	$$\text{update}_u(\Gamma,\Sigma) = (\Gamma,u(\Sigma))$$
+	Where $u:\Sigma\rightarrow\Sigma$. We notate conditional construction construction of $b$ if $a$ as an implication $a \rightarrow b$ and conditional update on of $b$ if $a$ as an implication $a \Rightarrow b$.
+	Naturally $(f \circ g)(p) = f(g(p))$.
+	\section{Operational Semantics}
+	An instruction f constitutes theorem application on $p$, and undergoes a transition relation
+	$$(\Gamma,\Sigma)\xrightarrow{f}(\Gamma',\Sigma') \text{ iff } f(\Gamma,\Sigma) = (\Gamma',\Sigma')$$
+	Execution is traced for $p_0\xrightarrow{f_1}p_1\xrightarrow{f_2}\text{...}\xrightarrow{f_n}p_{n}$ such that
+	$$\Gamma_0\subseteq\Gamma_1\subseteq\text{...}\subseteq\Gamma_{n}$$
+	An invariant is a property over a state $I(\Sigma)$, and is preserved if $\forall f, I(\Sigma) \xrightarrow{f} I(\Sigma')$. An invariant is certified if $\Gamma \vdash I$, and is sound only when it is both shown and modeled.
+	\section{Adversarial Modeling}
+
+
+\end{document}
