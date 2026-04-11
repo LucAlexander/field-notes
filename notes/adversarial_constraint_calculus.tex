@@ -23,13 +23,9 @@
 	\tableofcontents
 	\section{Introduction}
 	Modern systems, whether computational, social, or cognitive, operate under continuous exposure to external signals that influence their internal state and evolution. These signals may take the form of data, instructions, incentives, or narratives, and they interact with the system’s internal constraints to shape behavior over time. In such environments, correctness is not merely a static property but an ongoing process of maintaining invariants under potentially adversarial conditions.\\\\
-
 	Human cognition is not exempt from this dynamic. At any given moment, reasoning may be partially delegated to heuristic processes, emotional responses, or externally induced frames of interpretation. Under these conditions, the notion of a stable, coherent “self” becomes operational rather than absolute: there exist states in which behavior is driven less by deliberate reasoning and more by reactive or conditioned processes. This creates an attack surface. External inputs, such as persuasive messaging, social pressure, or informational overload, can steer cognition toward undesirable states, effectively acting as adversarial transformations on internal belief systems.\\\\
-
 	This work introduces an adversarial constraint calculus designed to model such systems as evolving proofs subject to both constructive and destructive influences. The calculus formalizes the distinction between persistent knowledge and mutable state, enabling the analysis of how invariants are established, preserved, or invalidated over time. Within this framework, vulnerabilities arise not only from incorrect reasoning but from structural properties of the system itself: the way it composes inferences, certifies beliefs, and responds to inputs.\\\\
-
 	A central objective of this calculus is to provide a mechanism for self audit. By modeling cognition as a proof system, it becomes possible to identify classes of vulnerabilities that allow undesirable conclusions or behaviors to emerge, even when local reasoning steps appear valid. This includes phenomena such as invariant drift, where previously justified beliefs persist despite losing their grounding, and emergent capability synthesis, where benign components combine to produce harmful outcomes.\\\\
-
 	More broadly, this framework treats interaction, whether between programs, agents, or internal cognitive processes, as an adversarial game over constraints and capabilities. To retain control over a system, one must not only construct valid proofs but also defend against transformations that exploit structural weaknesses. The calculus therefore serves both as a descriptive model of adversarial environments and as a tool for designing systems, including one’s own reasoning processes, that are robust against manipulation.\\\\
 	\section{Formal Definition}
 	A proof consists of an object $p$ such that
@@ -85,5 +81,23 @@
 		f = \text{theorem}(x):\\
 		\quad (\exists y \text{ where } (y \vdash x)) \rightarrow y
 	\end{align}
-	This theorem is vulnerable to an injection where a thoerem is applied as an instruction such that some target invariant $I$ shows our input proof $x$: $\{I \rightarrow \{B\}\}$. $f \{B\}$ now produces $I$ via injection.
+	This theorem is vulnerable to an injection where a an instruction is applied such that some target invariant $I$ shows our input proof $x$: $\{I \rightarrow \{B\}\}$. $f \{B\}$ now produces $I$ via injection.
+	\section{Adversarial Behavioral Refinement}
+	In order to refine a system and find vulnerable patterns we need to be able to express ideas in the core calculus. Once we have translated thoughts we can begin to hunt for vulnerabilities. We will choose to model human cognition and behavior. There are a handful of clear analogs to common beliefs. This system is strongest when structure is split upon what is trusted, and what is observed, and our translations should reflect that.\\\\
+	If we consider evidence proof $\phi$:
+	\begin{itemize}
+		\item[] \textbf{I believe $x$}: $\phi \vdash x$
+		\item[] \textbf{I have seen $x$}: $\phi \models x$
+		\item[] \textbf{If $x$ then I believe $y$}: $x\rightarrow y$
+		\item[] \textbf{If $x$ then $y$ happens}: $x\Rightarrow y$
+		\item[] \textbf{There is an $x$ such that $y$}: $\exists x, y$
+		\item[] \textbf{For all $x$, $y$}: $\forall x, y$
+	\end{itemize}
+	We can model certification of an invariant as \textbf{if it appears that $x$, then $x$ is true}: $(\phi \models x) \rightarrow x$. Note that we do not model truth, as truth does not truly exist in cognition. There is no proof that something is true beyond its presense, so truth for our sake means present membership in $\Sigma$, and belief of truth means present membership in $\Gamma$. We can see this distinction in the encoding of the statement \textbf{anything that feels true, is true}: $\forall x, (\phi \vdash x) \rightarrow (\phi \models x)$, which is vulnerable to invariant drift via $\phi \circ f \{\}$ where
+	\begin{align*}
+		f = \text{theorem}(x):\\
+		\quad x \vdash A\\
+		\quad x \nvDash A
+	\end{align}
+	
 \end{document}
