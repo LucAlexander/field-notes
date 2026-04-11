@@ -57,6 +57,11 @@ async function renderPage(page) {
 
 const articles = [
 	{
+		title: "Adversarial Constraint Calculus",
+		date: "10-04-2026",
+		content: "notes/adversarial_constraint_calculus.pdf"
+	},
+	{
 		title: "Proof Algebra",
 		date: "08-04-2026",
 		content: "notes/proof_algebra.pdf"

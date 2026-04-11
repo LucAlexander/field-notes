@@ -22,6 +22,7 @@
 	\maketitle
 	\tableofcontents
 	\section{Introduction}
+
 	\section{Formal Definition}
 	A proof consists of an object $p$ such that
 	$$p = (\Gamma, \Sigma)$$
@@ -49,8 +50,32 @@
 	$$(\Gamma,\Sigma)\xrightarrow{f}(\Gamma',\Sigma') \text{ iff } f(\Gamma,\Sigma) = (\Gamma',\Sigma')$$
 	Execution is traced for $p_0\xrightarrow{f_1}p_1\xrightarrow{f_2}\text{...}\xrightarrow{f_n}p_{n}$ such that
 	$$\Gamma_0\subseteq\Gamma_1\subseteq\text{...}\subseteq\Gamma_{n}$$
-	An invariant is a property over a state $I(\Sigma)$, and is preserved if $\forall f, I(\Sigma) \xrightarrow{f} I(\Sigma')$. An invariant is certified if $\Gamma \vdash I$, and is sound only when it is both shown and modeled.
+	An invariant is a property over a state $I(\Sigma)$, and is preserved if $\forall f, I(\Sigma) \xrightarrow{f} I(\Sigma')$. An invariant is certified if $\Gamma \vdash I$, and is sound only when it is both shown and modeled. Quantifiers operate over the active environment $(\Gamma, \Sigma)$ of a theorem up until that point in the trace.
 	\section{Adversarial Modeling}
-
-
+	To model security systems and substrates we need an active environment. The environment $E$ contains a series of systems $S$, which will be ongoing theorems. Theorems can receive signals in the form of instruction commits. These commits use the instructions of the theorem environment. The goal of the owner of a theorem is to receive signals which progress achievement of target capability interfaces. A proof fulfills a capability interface Cap($p$, $c$) iff $\forall x$ s.t. $c \vdash x$, $p \vdash x$. In the same environment exist preferable capabilties in the set $C$ and non preferable capabiltiies in the set $A$ which the owner of a theorem is tasked with avoiding as they build their instruction theorems and accept signal commits from the environment.\\\\
+	Theorem systems have at their disposal members of a set $\Theta$ of instruction theorems which they may use to express progress in the ongoing theorem. This constitutes the instruction set of a system. In modeling a computer system this translates directly to the instruction set primitives of the target operating system, while in modeling conscious minds this may translate to a set of belief patterns the mind operates on. \\\\
+	A candidate invariant $I$ in $\Sigma$ may be considered certified if it is promoted to $\Gamma$ as $(\Sigma \models I) \rightarrow I$. Invariants which gain certification but lose their status as a model in $\Sigma$ are considered stale invariants, we can call this drift($p$, $I$).\\\\
+	It is here where a game emerges, with an environment with $N$ instantiated theorem systems, each system is tasked with preserving its target capabilities in the set $C$ while preventing and dismanteling capabilities in the set $A$, and at the same time dismateling target capabilities in the set $C$ while preserving capabilities $A$ in other theorems. Capabilities may be assigned effects, such as the capability to signal, the capability to self signal, the capability to observe other entities in the environment, and the capability to receive signals may be in $C$, while set $A$ may contain harmful capabilities or capabilities which benefit opponent theorems. The instantiation of these capability effects is arbitrary to the theory.\\\\
+	Strategy emerges by players leveraging vulnerabiltiies in the structure of subtheorem instructions and their compositions inside a theorem system $S$, a handful of distinct classes of vulnerabilities emerge, each through the violation of system closure in $S$, and compound vulnerabilities become present where these vulnerability classes compose.
+	\section{Vulnerability Classes}
+	\subsection{Invariant Drift}
+	In proofs which use certifications of invariants as gates to to invariant addition, and assume the model of the certification is preserved may experience a class of vulnerability if the model has drifted. 
+	\begin{align*}
+		f = \text{theorem}(x):\\
+		\quad x \models A\\
+		\quad (x \models A) \rightarrow A\\
+		\quad (x \vdash C) \Rightarrow \neg A\\
+		\quad (x \vdash A \wedge x \models A) \rightarrow \neg B
+	\end{align}
+	This theorem is exploitable to produce invariant $B$ given the proof $f\,\{ B\,C \}$
+	\subsection{Emergent Capability Synthesis}
+	Some proofs may allow rather innocuous capabilities or invariants to be reached, but when multiple of these innocuous proof compose they may synthesize an emergent capability interface.\\\\
+	Given the capability ${B, C}$, a theorem proving $B$ may be a llowed by the defender, as well as a theorem proving $C$, while no global invariant is enforced that neither may exist at the same time. This may be defended against with a simple guard addition to the theorem in the form of an instruction producing for some argument proof $x$, $(x \vdash B) \rightarrow \neg C$. Consider the alternate guard $(x \vdash B) \nvdash C$, which forces an assertion that the proof does not show both simultaneously, a theorem containing this may be exploited to draw the theorem toward $\bot$ indefinitely via a denial of truth, which presents another subclass of vulnerability.
+	\subsection{Quantifier Injection}
+	Quntifiers may be injected in two ways, only if the quantifier quantifies over an influencable proof. If a quantification is done over the input proof of a theorem, then it follows that that quantifier is influencable, however even if quantification is done over the theorem environment, injection may be done through emergent capability synthesis by fulfilling an obligation which the quantifier is gated by. \\\\
+	\begin{align*}
+		f = \text{theorem}(x):\\
+		\quad (\exists y \text{ where } (y \vdash x)) \rightarrow y
+	\end{align}
+	This theorem is vulnerable to an injection where a thoerem is applied as an instruction such that some target invariant $I$ shows our input proof $x$: $\{I \rightarrow \{B\}\}$. $f \{B\}$ now produces $I$ via injection.
 \end{document}
