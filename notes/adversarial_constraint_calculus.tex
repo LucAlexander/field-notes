@@ -14,7 +14,7 @@
 \usepackage{fancyvrb}
 \usepackage[left=2.5cm,top=3cm,right=2.5cm,bottom=3cm,bindingoffset=0.5cm]{geometry}
 
-\title{Adversarial Constraint Calculus}
+\title{Adversarial Constraint Calculus for Behavioral Refinement}
 \author{Luc Alexander L{\"u}thi}
 \date{April 10th, 2026}
 
@@ -22,7 +22,15 @@
 	\maketitle
 	\tableofcontents
 	\section{Introduction}
+	Modern systems, whether computational, social, or cognitive, operate under continuous exposure to external signals that influence their internal state and evolution. These signals may take the form of data, instructions, incentives, or narratives, and they interact with the system’s internal constraints to shape behavior over time. In such environments, correctness is not merely a static property but an ongoing process of maintaining invariants under potentially adversarial conditions.\\\\
 
+	Human cognition is not exempt from this dynamic. At any given moment, reasoning may be partially delegated to heuristic processes, emotional responses, or externally induced frames of interpretation. Under these conditions, the notion of a stable, coherent “self” becomes operational rather than absolute: there exist states in which behavior is driven less by deliberate reasoning and more by reactive or conditioned processes. This creates an attack surface. External inputs, such as persuasive messaging, social pressure, or informational overload, can steer cognition toward undesirable states, effectively acting as adversarial transformations on internal belief systems.\\\\
+
+	This work introduces an adversarial constraint calculus designed to model such systems as evolving proofs subject to both constructive and destructive influences. The calculus formalizes the distinction between persistent knowledge and mutable state, enabling the analysis of how invariants are established, preserved, or invalidated over time. Within this framework, vulnerabilities arise not only from incorrect reasoning but from structural properties of the system itself: the way it composes inferences, certifies beliefs, and responds to inputs.\\\\
+
+	A central objective of this calculus is to provide a mechanism for self audit. By modeling cognition as a proof system, it becomes possible to identify classes of vulnerabilities that allow undesirable conclusions or behaviors to emerge, even when local reasoning steps appear valid. This includes phenomena such as invariant drift, where previously justified beliefs persist despite losing their grounding, and emergent capability synthesis, where benign components combine to produce harmful outcomes.\\\\
+
+	More broadly, this framework treats interaction, whether between programs, agents, or internal cognitive processes, as an adversarial game over constraints and capabilities. To retain control over a system, one must not only construct valid proofs but also defend against transformations that exploit structural weaknesses. The calculus therefore serves both as a descriptive model of adversarial environments and as a tool for designing systems, including one’s own reasoning processes, that are robust against manipulation.\\\\
 	\section{Formal Definition}
 	A proof consists of an object $p$ such that
 	$$p = (\Gamma, \Sigma)$$
