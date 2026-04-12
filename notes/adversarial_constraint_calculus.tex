@@ -16,7 +16,7 @@
 
 \title{Adversarial Constraint Calculus for Behavioral Refinement}
 \author{Luc Alexander L{\"u}thi}
-\date{April 10th, 2026}
+\date{April 12th, 2026}
 
 \begin{document}
 	\maketitle
@@ -99,5 +99,10 @@
 		\quad x \vdash A\\
 		\quad x \nvDash A
 	\end{align}
-	
+	Vulnerability is not irrationality. You may encounter irrational arguments which are invulnerable. Vulnerability is more about what you can be convinced of given your present arguments and beliefs. This presents a more complicated type of vulnerability class, belief injection. Belief injection is not about individual vulnerabilities in latent structure of an argument, but rather about injecting harmful arguments which present vulnerabilities when used to implement a more intricate belief. Formally it is an instruction with a vulnerable pattern, even if it does not present a complete vulnerability. Informally this is propaganda in our cognition model, and malware in a computing model. \\\\
+	Identifying propaganda is sometimes subtle, as the vulnerable pattern may be hidden behind a composite vulnerability pattern, or to say, you may not be looking for "is this injectable" or "does this cause drift", but rather "would this be injectable on $y$ if drift was introduced?".
+		$$f = \text{theorem}(x): (x \models A) \rightarrow A$$
+		$$g = \text{theorem}(x): \exists y (y \vdash A) \wedge (y \models A) \rightarrow B$$
+		$$h = \text{theorem}(x): (x \vdash B) \Rightarrow \neg C$$
+	Here $C$ is locally guarded by belief in $B$ which is gated by certification of $A$. If drift occurs in a proof construction between application of $f$ and $g$, $C$ will no longer be guarded and could persist an intrusion attempt.
 \end{document}
