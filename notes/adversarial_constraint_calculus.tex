@@ -105,4 +105,7 @@
 		$$g = \text{theorem}(x): \exists y (y \vdash A) \wedge (y \models A) \rightarrow B$$
 		$$h = \text{theorem}(x): (x \vdash B) \Rightarrow \neg C$$
 	Here $C$ is locally guarded by belief in $B$ which is gated by certification of $A$. If drift occurs in a proof construction between application of $f$ and $g$, $C$ will no longer be guarded and could persist an intrusion attempt.
+	\section{Shortcomings}
+	This model cannot represent cognitive dissonance, for the simple reason that all actions have the same cost. In real systems this is not the case, everything has resource constraints. This is a significant shortcoming, as many of the mechanisms which drive behavior in both biological and computing systems take the shape of cognitive dissonance. The simple pattern is \textbf{Belief $x$ is less costly than belief $y$ under evidence $z$}, where cost is defined as a function of $z$. The closest you can get is direct update: \textbf{Belief $x$ overwrites belief $y$ under evidence $z$}. 
+
 \end{document}
