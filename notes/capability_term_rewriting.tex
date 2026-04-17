@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{lipsum}
+\usepackage{scrextend}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage[left=2.5cm,top=3cm,right=2.5cm,bottom=3cm,bindingoffset=0.5cm]{geometry}
+
+\title{Capability Term Rewriting}
+\author{Luc Alexander L{\"u}thi}
+\date{April 17th, 2026}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\section{Introduction}
+	Prior versions of argumentative proof games modeling security fell short in that axiomatic rules did not compose or meaningfully edit the structure of the state in a way that gave way to emergent strategy or security. In this note I present a family of local term rewriting algebras which when given structural capabilities similar to the graph model produce emergent exploitation and priviledge escalation while remaining nontrivial in its semantics. The core model is based on the idea that security is a system of imperfectly enforceably constraints over a function to prevent the function from returning certain classes of output. The system in this note presents argumentation as a process of writing a function which avoids certain properties while according to others in a class of mechanically manipulable rewrite algebras.
+	\section{Local Algebras}
+	A model in this class is represented by a series of named rewrite rules. Symbols correspond to term rewrite expressions composed of other symbols in the form $\Phi: XYZ \rightarrow ABC$ where each symbol corresponds to another rule. A string of symbols represents a state.
+	$$ABC$$
+	States apply to eachother by applying rewrite rules from the right hand side in order from left to write to the left hand side. Here $\Phi$ applies to the left state $XYZ$ once and produces a new state $ABC$.
+	$$(XYZ)\,\,\Phi \Rightarrow ABC$$
+	Certain rules are gated behind present substates. In the state $ABC$ a substate $BC$ may indicate that a new rule may be applied, $BC :: \Pi: A \rightarrow Z$. This rule only effects the state if $BC$ is present in the state.
+	\section{Adversarial Constraint Violation Game}
+	Each player in the game is given a local algebra, a set of state transitions which must be possible from a starting state designed by each player, and a set of antitarget states which must not be reachable form the desgiend starting state. Each player then designs their starting state and proves that transitions in the local algebra allow for target states to be reached. Each player may then make attempts to violate the constraints posed on each starting state of other players by proving that their opponents respective antitarget states are possible given their opponents designed starting state and the local algebra available to the players.\\\\
+	In an extension of this game players are allowed to select one transition rule which applies to all incoming proof states before the proof is applied adversarially. 
+
+
+\end{document}

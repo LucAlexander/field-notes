@@ -57,6 +57,11 @@ async function renderPage(page) {
 
 const articles = [
 	{
+		title: "Capability Term Rewriting",
+		date: "10-04-2026",
+		content: "notes/capability_term_rewriting.pdf"
+	},
+	{
 		title: "Adversarial Constraint Calculus",
 		date: "10-04-2026",
 		content: "notes/adversarial_constraint_calculus.pdf"
