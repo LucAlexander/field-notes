@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{lipsum}
+\usepackage{scrextend}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage[left=2.5cm,top=3cm,right=2.5cm,bottom=3cm,bindingoffset=0.5cm]{geometry}
+
+\title{Dissonance Calculus for Behavioral Refinement}
+\author{Luc Alexander L{\"u}thi}
+\date{April 25th, 2026}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\section{Introduction}
+	Modern systems, whether computational, social, or cognitive, operate under continuous exposure to external signals that influence their internal belief state. These signals interact with the systems internal constraints to shape behavior over time. In such environments correctness is not merely a static property but an ongoing process of maintaining invariants under potentially adversarial conditions. \\\\
+	Human cognition experiences no exemption from theis dynamic. At any given moment reasoning may be partially delegated to heuristic processes, emotional responses, or externally induced frames of interpretation. Under these conditions the notion of a stable coherent "self" becomes operational rather than absolute: there exist states in which behavior is driven less by deliberate reasoning and more by reactive or conditioned processes. This creates an attack surface. External inputs can steer cognition toward undesirable states, effectively acting as adversarial transformations on internal belief systems.\\\\
+	This work introduces an adversarial constraint calculus for modeling cognition centered around cognitive dissonance as evolving proofs subject to both constructive and destructive influences. The calculus formalizes the distinction between what is believed and what is true through an observation lense, enabling the analysis of how invariants are established, preserved, or invalidated over time. Within this framework, vulnerabiltiies arise no only form incorrect reasoning but from structural properties of the system itself.\\\\
+	A central objective of this calculus is to provide a mechanism for self audit. By modeling cognition as a profo system, it becomes possible to identify classes of vulnerabiltiies that allow undesirable conclusions or behaviors to emerge, even when local reasoning steps appear valid. More broadly, this framework treates interaction, whether between programs, agents, or internal cognitive processes, as an adversrial game over constraints and capabilities. To retain control over a system, one must not only construct valid proofs but also defend against transformations that exploit structural weaknesses. The calculus therefore serves both as a descriptive model of adversarial environments and as a tool for designing systems, including one's own reasoning processes and metacognitive architecture which is robust against manipulation.
+	\section{Formalism}
+	This system models minds as collections of proofs. A proof consists of an object $p$ such that
+	$$p = (\Sigma,\,\Omega,\,R)$$
+	$\Sigma$ is the set of what is currently believed.\\
+	$\Omega$ is the set of what is currently observed.\\
+	$R \in \mathbb{N} $ is the observation budget.\\
+	Such that
+	$$\Omega \subseteq \Sigma$$
+	$$|\Omega| \leq R$$
+	Proofs are constructed from beliefs, which take a variety of forms. We can assert that a proof $p$ shows $x$ as $p \vdash x$. We can construct information in a proof by asserting that a proof $p$ is sufficient to show $x$ as $p \rightarrow x$, allowing $p$ to show $x$ in the future. Beliefs may also simply take the form $x$.If two beliefs $x$ and $y$ are incongruent we express this with the belief $x \bot y$.\\\\
+	Proofs are constructed from evidential theorems. Theorems take evidence and construct proof information in $\Sigma$ and $\Omega$. Theorems and proofs exist in an evironment $\Gamma$ such that
+	$$\Gamma = (\Theta, P)$$
+	where theorems exist in $\Theta$ and proofs exist in $P$. This environment models a mind for our purposes. Proofs in $P$ are derived from evidence provided to theorems in $\Theta$. An evidential theorem is an instruction. Instructions are total or partial functions $f: (\Sigma,\,\Omega,\,R) \rightarrow (\Sigma',\,\Omega',\,R)$.\\\\
+	A construction rule constitutes addition of information to the context of a proof.
+	$$\text{construct}_x(\Sigma,\Omega,R) = (\Sigma \cup x, \Omega, R)$$
+	An observation rule consistutes addition or rotation of information to the observation context of a proof.
+	$$\text{observe}_x(\Sigma,\Omega,R)=(\Sigma,\omega(\Omega,x,R))$$
+	where
+	\[
+	\omega(x, y, r) =
+	\begin{cases}
+		x \cup y & \text{if } |x| < R \\
+		(x \cup y ) - \text{least-recently-used}(x) & \text{otherwise}
+	\end{cases}
+	\]
+	Naturally for two instructions $f$, and $g$ $(f \circ g)(x)=f(g(x))$.
+	We induce construction of $y$ if $x$ as $x \rightarrow y$. We may also induce construction of $y$ if $x$ shows $y$ as $x \vdash y$. We induce observation of $x$ and $y$ in that order as $x \rightarrow y$ or $x \vdash y$.
+	\section{Modeling}
+	In order to perform behavioral refinement we must first understand how to model our beliefs in this system. This requires an environment for our mind models to live in. The environment consists of a series of minds, each of which are capable of emiting and receiving signals. These signals take the form of instructions; the name of a theorem and provided evidence. When receiving a signal, a mind metabolises it by checking if they have a theorem by that name, and taking in the evidence of the signal into the matching internal theorem in $\Theta$. Each mind has a target proof which must be maintained in each other mind including their own. Any target proof not belonging to a certain mind is an antitarget for that mind.\\\\
+	This produces a game of adversarial cognition where each player is a mind in the environment, and may construct signals to achieve target proofs in opponent minds, while culling antitarget proofs in opponent minds. \\\\
+	\section{Malcognition}
+	Propaganda and malware are both examples of the same pattern in a constructive system, whether it be a thinking mind or a computing machine. This pattern is malcognitive information, where belief is adversarially injected with ulterior goals, whether it be viral propagation, parasitism, or the culling of other beliefs.
+	\section{Behavioral Refinement}
+	The process of behavioral refinement in this system involves modeling a belief structure, and hunting for vulnerabilities.
+\end{document}
