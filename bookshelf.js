@@ -57,6 +57,11 @@ async function renderPage(page) {
 
 const articles = [
 	{
+		title: "Malcognition",
+		date: "02-05-2026",
+		content: "notes/mal.pdf"
+	},
+	{
 		title: "Dissonance Calculus",
 		date: "25-04-2026",
 		content: "notes/dissinance_calculus.pdf"
