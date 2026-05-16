@@ -57,6 +57,11 @@ async function renderPage(page) {
 
 const articles = [
 	{
+		title: "Constraint Universes",
+		date: "16-05-2026",
+		content: "notes/constraint_universes.pdf"
+	},
+	{
 		title: "Malcognition",
 		date: "02-05-2026",
 		content: "notes/mal.pdf"
